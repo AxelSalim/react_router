@@ -1,5 +1,6 @@
 import { Outlet, NavLink, Link, useLoaderData, Form, redirect, useNavigation } from "react-router-dom";
 import { getContacts, createContact  } from "../contacts";
+import { useEffect } from "react";
 
 
 
@@ -19,6 +20,10 @@ export default function Root() {
   const { contacts } = useLoaderData();
   const navigation = useNavigation();
 
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
+  
   return (
     <>
       <div id="sidebar">
